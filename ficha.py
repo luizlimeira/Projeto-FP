@@ -1,48 +1,54 @@
 import json
 import os
 
-ARQUIVO_FICHA_TECNICA = os.path.join(os.path.dirname(__file__), 'Ficha-Técnica.json')
+ARQUIVO_FICHA = os.path.join(os.path.dirname(__file__), 'ficha.json')
 
 def carregar_ficha():
-    # Verifica se o arquivo existe, se não existir, cria um arquivo com lista vazia
     if not os.path.exists(ARQUIVO_FICHA):
         with open(ARQUIVO_FICHA, 'w') as f:
             json.dump([], f, indent=4)
-    
-    # Carrega o conteúdo do arquivo
+
     with open(ARQUIVO_FICHA, 'r') as f:
         return json.load(f)
 
-# def salvar_ficha(ficha): (oq é isso?)
+def salvar_ficha(ficha):
+    with open(ARQUIVO_FICHA, 'w') as f:
+        json.dump(ficha, f, indent=4, ensure_ascii=False)
+
+ficha_pratos = []
+ficha_bebidas = []
 
 def visualizar_ficha():
-    while true: 
+    while True: 
         print("1 - Visualizar Ficha Tecnica de Pratos")
         print("2- Visualizar Ficha Tecnica de Bebida")
-        opcao = int(input())
+        opcao = int(input("Escolha uma opção: "))
 
         if opcao == 1:
-            pratos[[], []] 
-            break
+            if not ficha_pratos:
+                print("Nenhum prato cadastrado")
+            else:
+                print("\n--- Ficha Técnica - Pratos ---")
+                for i, prato in enumerate(ficha_pratos):
+                    print(f"{i+1}. Nome: {prato[0]}")
+                    print(f"   Ingredientes: {prato[1]}")
+                    print(f"   Modo de Preparo: {prato[2]}")
+                    print("-" * 40)
+                break
         elif opcao == 2:
-            bebidas[[], []]
-            break
+            if not ficha_bebidas:
+                print("Nenhuma bebida cadastrada")
+            else:
+                print("\n--- Ficha Técnica - Bebidas ---")
+                for i, bebidas in enumerate(ficha_bebidas):
+                    print(f"{i+1}. Nome: {bebidas[0]}")
+                    print(f"   Ingredientes: {bebidas[1]}")
+                    print(f"   Modo de Preparo: {bebidas[2]}")
+                    print("-" * 40)
+                break
         else:
             print("Escolha uma opcao válida")
             return
-
-
-#     if usuarios:
-#         print("=" *50)
-#         print("LISTA DE USUÁRIOS:")
-#         print("-" *50)
-#         for usuario in usuarios:
-#             print("*" *50)
-#             print(f"NOME: {usuario['nome']}, IDADE: {usuario['idade']}")
-#             print("*" *50)
-#             print("=" *50)
-#     else:
-#         print("😒 NENHUM USUÁRIO CADASTRADO.")
 
 # def adicionar_usuario(nome, idade):
 #     usuarios = carregar_usuarios()
