@@ -1,3 +1,13 @@
+def menu_fichas():
+    while True:
+        print("\n--- FICHA TECNICA ---")
+        print("1 - Visualizar Ficha")
+        print("2 - Adicionar Item")
+        print("3 - Editar Item")
+        print("4 - Excluir Item")
+        print("5- Voltar")
+        op = input("Escolha uma opção:")
+
 def menu_cardapio():
     while True:
         print("\n--- CARDÁPIO ---")
@@ -6,7 +16,7 @@ def menu_cardapio():
         print("3. Atualizar")
         print("4. Remover")
         print("0. Voltar")
-        op = input("Escolha: ")
+        op = input("Escolha uma opção: ")
 
 def main():
     while True:
