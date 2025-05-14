@@ -1,3 +1,5 @@
+from ficha import carregar_ficha, salvar_ficha, visualizar_ficha
+
 def menu_fichas():
     while True:
         print("\n--- FICHA TECNICA ---")
