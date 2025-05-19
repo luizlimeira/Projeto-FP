@@ -14,7 +14,7 @@ def salvar_fichas():
     with open(ARQUIVO_FICHAS, 'w', encoding='utf-8') as arquivo:
         json.dump(fichas, arquivo, indent=4, ensure_ascii=False)
 
-fichas = []
+fichas = carregar_fichas()
 
 def menu_fichas():
     while True:
@@ -90,6 +90,7 @@ def adicionar_ficha():
             passo_num+=1
             
         fichas.append(nova_ficha)
+        salvar_fichas()
         print("Ficha adicionada com sucesso!")
 
         op = input("Deseja adicionar outra ficha? (s/n)").lower()
@@ -97,6 +98,7 @@ def adicionar_ficha():
             break
 
 def visualizar_fichas():
+    fichas = carregar_fichas()
     if not fichas:
         print("\nNenhuma ficha cadastrada ainda!")
         return
