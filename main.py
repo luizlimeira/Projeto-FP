@@ -3,8 +3,8 @@ from ficha import carregar_ficha, salvar_ficha, visualizar_ficha
 def menu_fichas():
     while True:
         print("\n--- FICHA TECNICA ---")
-        print("1 - Visualizar Ficha")
-        print("2 - Adicionar Item")
+        print("1 - Adicionar Item")
+        print("2 - Visualizar Item")
         print("3 - Editar Item")
         print("4 - Excluir Item")
         print("5- Voltar")

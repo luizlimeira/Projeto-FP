@@ -1,63 +1,77 @@
-import json
-import os
+# import json
+# import os
 
-ARQUIVO_FICHA = os.path.join(os.path.dirname(__file__), 'ficha.json')
+# ARQUIVO_FICHA = os.path.join(os.path.dirname(__file__), 'ficha.json')
+# --------------------------------------------------------------------
 
-def carregar_ficha():
-    if not os.path.exists(ARQUIVO_FICHA):
-        with open(ARQUIVO_FICHA, 'w') as f:
-            json.dump([], f, indent=4)
+def adicionar_ficha():
+    while True:
+        print("\n" + "=" * 40)
+        print("ADICIONAR NOVA FICHA".center(40))
+        print("=" * 40)
 
-    with open(ARQUIVO_FICHA, 'r') as f:
-        return json.load(f)
+        nova_ficha = {
+            'categoria': '',
+            'nome': '',
+            'ingredientes': [],
+            'preparo': []
+        }
 
-def salvar_ficha(ficha):
-    with open(ARQUIVO_FICHA, 'w') as f:
-        json.dump(ficha, f, indent=4, ensure_ascii=False)
+        categoria = input("Categoria: ")
+        nova_ficha['categoria'] = categoria
 
-ficha_pratos = []
-ficha_bebidas = []
+        nome = input("Nome: ")
+        nova_ficha['nome'] = nome
 
-def visualizar_ficha():
-    while True: 
-        print("1 - Visualizar Ficha Tecnica de Pratos")
-        print("2- Visualizar Ficha Tecnica de Bebida")
-        opcao = int(input("Escolha uma opção: "))
+        print("\nINGREDIENTES: ")
+        while True:
+            ingred = input("Ingrediente: ")
+            quant = input("Quantidade: ")
 
-        if opcao == 1:
-            if not ficha_pratos:
-                print("Nenhum prato cadastrado")
-            else:
-                print("\n--- Ficha Técnica - Pratos ---")
-                for i, prato in enumerate(ficha_pratos):
-                    print(f"{i+1}. Nome: {prato[0]}")
-                    print(f"   Ingredientes: {prato[1]}")
-                    print(f"   Modo de Preparo: {prato[2]}")
-                    print("-" * 40)
+            nova_ficha['ingredientes'].append({
+                'ingrediente': ingred, 
+                'quantidade': quant
+            })
+
+            op = input("deseja adiconar  outro ingrediente? (s/n)").lower()
+            if op != 's':
                 break
-        elif opcao == 2:
-            if not ficha_bebidas:
-                print("Nenhuma bebida cadastrada")
-            else:
-                print("\n--- Ficha Técnica - Bebidas ---")
-                for i, bebidas in enumerate(ficha_bebidas):
-                    print(f"{i+1}. Nome: {bebidas[0]}")
-                    print(f"   Ingredientes: {bebidas[1]}")
-                    print(f"   Modo de Preparo: {bebidas[2]}")
-                    print("-" * 40)
+
+        print("\nMODO DE PREPARO:")
+        passo_num = 1
+        while True:
+            descricao = input(f"digite o passo {passo_num}: ")
+
+            nova_ficha['preparo'].append({
+                'passo': passo_num,
+                'descricao': descricao
+            })
+
+            op = input("deseja adiconar  outro passo? (s/n)").lower()
+            if op != 's':
                 break
-        else:
-            print("Escolha uma opcao válida")
-            return
 
-# def adicionar_usuario(nome, idade):
-#     usuarios = carregar_usuarios()
+            passo_num+=1
+            
+        fichas.append(nova_ficha)
+        print("Ficha adicionada com sucesso!")
 
-#     usuarios.append({'nome': nome, 'idade': idade})
+        op = input("Deseja adicionar outra ficha? (s/n)").lower()
+        if op != 's':
+            break
 
-#     with open(arquivo, 'w') as f:
-#         json.dump(usuarios, f, indent=4, ensure_ascii=False)
-#     print("😎 USUÁRIO ADICIONADO COM SUCESSO!")
+# --------------------------------------------------------------------
+# def carregar_ficha():
+#     if not os.path.exists(ARQUIVO_FICHA):
+#         with open(ARQUIVO_FICHA, 'w') as f:
+#             json.dump([], f, indent=4)
+
+#     with open(ARQUIVO_FICHA, 'r') as f:
+#         return json.load(f)
+
+# def salvar_ficha(ficha):
+#     with open(ARQUIVO_FICHA, 'w') as f:
+#         json.dump(ficha, f, indent=4, ensure_ascii=False)
 
 # def atualizar_usuario(nome_antigo, novo_nome, nova_idade):
 #     usuarios = carregar_usuarios()
