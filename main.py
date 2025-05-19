@@ -26,7 +26,7 @@ def main():
             menu_pedidos()
 
         elif opcao == "3":
-            menu_fichas(voltar_callback=main)
+            menu_fichas()
 
         elif opcao == "0":
             print("Saindo do sistema.")
