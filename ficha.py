@@ -3,6 +3,31 @@
 
 # ARQUIVO_FICHA = os.path.join(os.path.dirname(__file__), 'ficha.json')
 # --------------------------------------------------------------------
+fichas = []
+
+def menu_fichas():
+    while True:
+        print("\n--- FICHA TÉCNICA ---")
+        print("1 - Adicionar Ficha")
+        print("2 - Visualizar Fichas")
+        print("3 - Editar Ficha")
+        print("4 - Excluir Ficha")
+        print("5- Voltar")
+        op = int(input("Escolha uma opção: "))
+
+        if op == 1:
+            adicionar_ficha()
+        # elif op == 2:
+           # visualizar_fichas()
+        # elif op == 3:
+        #    editar_ficha()
+        # elif op ==4:
+        #     excluir_ficha()
+        # elif op == 5:
+        #     main()
+        else:
+            print("opcão invalida.")
+            continue
 
 def adicionar_ficha():
     while True:
