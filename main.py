@@ -1,14 +1,4 @@
-from ficha import carregar_ficha, salvar_ficha, visualizar_ficha
-
-def menu_fichas():
-    while True:
-        print("\n--- FICHA TÉCNICA ---")
-        print("1 - Adicionar Ficha")
-        print("2 - Visualizar Fichas")
-        print("3 - Editar Ficha")
-        print("4 - Excluir Ficha")
-        print("0- Voltar")
-        op = int(input("Escolha uma opção: "))
+from ficha import menu_fichas
 
 def menu_cardapio():
     while True:

@@ -1,8 +1,9 @@
 import json
 import os
 
-ARQUIVO_FICHAS = "fichas.json"
+ARQUIVO_FICHAS = "ficha.json"
 
+# Funções de persistência:
 def carregar_fichas():
     if not os.path.exists(ARQUIVO_FICHAS):
         return []
@@ -10,37 +11,12 @@ def carregar_fichas():
     with open(ARQUIVO_FICHAS, 'r', encoding='utf-8') as arquivo:
         return json.load(arquivo)
 
-def salvar_fichas():
+def salvar_fichas(fichas):
     with open(ARQUIVO_FICHAS, 'w', encoding='utf-8') as arquivo:
         json.dump(fichas, arquivo, indent=4, ensure_ascii=False)
 
-fichas = carregar_fichas()
-
-def menu_fichas():
-    while True:
-        print("\n--- FICHA TÉCNICA ---")
-        print("1 - Adicionar Ficha")
-        print("2 - Visualizar Fichas")
-        print("3 - Editar Ficha")
-        print("4 - Excluir Ficha")
-        print("0- Voltar")
-        op = int(input("Escolha uma opção: "))
-
-        if op == 1:
-            adicionar_ficha()
-        elif op == 2:
-           visualizar_fichas()
-        # elif op == 3:
-        #    editar_ficha()
-        # elif op ==4:
-        #     excluir_ficha()
-        # elif op == 0:
-        #     main()
-        else:
-            print("opcão invalida.")
-            continue
-
-def adicionar_ficha():
+# Operações CRUD:
+def adicionar_ficha(fichas):
     while True:
         print("\n" + "=" * 40)
         print("ADICIONAR NOVA FICHA".center(40))
@@ -128,4 +104,27 @@ def visualizar_fichas():
             print(f"{passo['passo']}. {passo['descricao']}")
             print("-" * 40)
 
-menu_fichas()
+# Menu específico (importado peolo main.py)
+def menu_fichas():
+    fichas = carregar_fichas()
+    while True:
+        print("\n--- FICHA TÉCNICA ---")
+        print("1 - Adicionar Ficha")
+        print("2 - Visualizar Fichas")
+        print("3 - Editar Ficha")
+        print("4 - Excluir Ficha")
+        print("0- Voltar")
+        op = int(input("Escolha uma opção: "))
+
+        if op == 1:
+            adicionar_ficha()
+        elif op == 2:
+           visualizar_fichas()
+        # elif op == 3:
+        #    editar_ficha()
+        # elif op ==4:
+        #     excluir_ficha()
+        # elif op == 0:
+        #     main()
+        else:
+            print("opcão invalida.")
