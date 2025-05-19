@@ -66,14 +66,14 @@ def adicionar_ficha(fichas):
             passo_num+=1
             
         fichas.append(nova_ficha)
-        salvar_fichas()
+        salvar_fichas(fichas)
         print("Ficha adicionada com sucesso!")
 
         op = input("Deseja adicionar outra ficha? (s/n)").lower()
         if op != 's':
             break
 
-def visualizar_fichas():
+def visualizar_fichas(fichas):
     fichas = carregar_fichas()
     if not fichas:
         print("\nNenhuma ficha cadastrada ainda!")
@@ -105,7 +105,7 @@ def visualizar_fichas():
             print("-" * 40)
 
 # Menu específico (importado peolo main.py)
-def menu_fichas():
+def menu_fichas(voltar_callback=None):
     fichas = carregar_fichas()
     while True:
         print("\n--- FICHA TÉCNICA ---")
@@ -117,14 +117,18 @@ def menu_fichas():
         op = int(input("Escolha uma opção: "))
 
         if op == 1:
-            adicionar_ficha()
+            fichas = adicionar_ficha(fichas)
         elif op == 2:
-           visualizar_fichas()
+           visualizar_fichas(fichas)
         # elif op == 3:
         #    editar_ficha()
         # elif op ==4:
         #     excluir_ficha()
-        # elif op == 0:
-        #     main()
+        elif op == 0:
+            if voltar_callback:
+                voltar_callback()
         else:
             print("opcão invalida.")
+
+if __name__ == "__main__":
+    menu_fichas()
