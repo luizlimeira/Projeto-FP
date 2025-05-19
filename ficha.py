@@ -1,8 +1,19 @@
-# import json
-# import os
+import json
+import os
 
-# ARQUIVO_FICHA = os.path.join(os.path.dirname(__file__), 'ficha.json')
-# --------------------------------------------------------------------
+ARQUIVO_FICHAS = "fichas.json"
+
+def carregar_fichas():
+    if not os.path.exists(ARQUIVO_FICHAS):
+        return []
+    
+    with open(ARQUIVO_FICHAS, 'r', encoding='utf-8') as arquivo:
+        return json.load(arquivo)
+
+def salvar_fichas():
+    with open(ARQUIVO_FICHAS, 'w', encoding='utf-8') as arquivo:
+        json.dump(fichas, arquivo, indent=4, ensure_ascii=False)
+
 fichas = []
 
 def menu_fichas():
