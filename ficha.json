@@ -1,0 +1,162 @@
+[
+    {
+        "categoria": "bebidas",
+        "nome": "Cappuccino",
+        "ingredientes": [
+            {
+                "ingrediente": "espresso",
+                "quantidade": "1"
+            },
+            {
+                "ingrediente": "leite",
+                "quantidade": "150ml"
+            }
+        ],
+        "preparo": [
+            {
+                "passo": 1,
+                "descricao": "extraia o espresso no copo de 220ml"
+            },
+            {
+                "passo": 2,
+                "descricao": "vaporize o leite"
+            },
+            {
+                "passo": 3,
+                "descricao": "faça o latte art"
+            },
+            {
+                "passo": 4,
+                "descricao": "sirva"
+            }
+        ]
+    },
+    {
+        "categoria": "bebidas",
+        "nome": "Orange Coffee",
+        "ingredientes": [
+            {
+                "ingrediente": "suco de laranja",
+                "quantidade": "200ml"
+            },
+            {
+                "ingrediente": "gelo",
+                "quantidade": "1 pá"
+            },
+            {
+                "ingrediente": "cold brew",
+                "quantidade": "100ml"
+            }
+        ],
+        "preparo": [
+            {
+                "passo": 1,
+                "descricao": "adicione o suco ao copo"
+            },
+            {
+                "passo": 2,
+                "descricao": "adicione o gelo"
+            },
+            {
+                "passo": 3,
+                "descricao": "adicione o cold brew em fluxo fino, do alto."
+            },
+            {
+                "passo": 4,
+                "descricao": "sirva"
+            }
+        ]
+    },
+    {
+        "categoria": "comida",
+        "nome": "Filé à Parmegiana",
+        "ingredientes": [
+            {
+                "ingrediente": "file de frango",
+                "quantidade": "200g"
+            },
+            {
+                "ingrediente": "alho",
+                "quantidade": "2 dentes"
+            },
+            {
+                "ingrediente": "ovos",
+                "quantidade": "2"
+            },
+            {
+                "ingrediente": "molho de tomate",
+                "quantidade": "500ml"
+            },
+            {
+                "ingrediente": "queijo mussarela",
+                "quantidade": "100g"
+            },
+            {
+                "ingrediente": "orégano",
+                "quantidade": "à gosto"
+            },
+            {
+                "ingrediente": "sal",
+                "quantidade": "à gosto"
+            },
+            {
+                "ingrediente": "vinagre",
+                "quantidade": "à gosto"
+            },
+            {
+                "ingrediente": "farinha de rosca",
+                "quantidade": "50g"
+            },
+            {
+                "ingrediente": "pimenta-do-reino",
+                "quantidade": "à gosto"
+            },
+            {
+                "ingrediente": "queijo parmesão ralado",
+                "quantidade": "à gosto"
+            }
+        ],
+        "preparo": [
+            {
+                "passo": 1,
+                "descricao": "Tempere os filés com o alho, orégano, sal, pimenta e vinagre."
+            },
+            {
+                "passo": 2,
+                "descricao": "Passe pela farinha de rosca, nos ovos batidos e novamente pela farinha de rosca."
+            },
+            {
+                "passo": 3,
+                "descricao": "Frite em óleo quente."
+            },
+            {
+                "passo": 4,
+                "descricao": "Escorra sobre papel absorvente."
+            },
+            {
+                "passo": 5,
+                "descricao": "Acomode os filés em um refratário regado com um pouco de molho"
+            },
+            {
+                "passo": 6,
+                "descricao": "Coloque fatias de mussarela sobre os filés."
+            },
+            {
+                "passo": 7,
+                "descricao": "Regue com o molho."
+            },
+            {
+                "passo": 8,
+                "descricao": "Polvilhe o queijo parmesão ralado"
+            },
+            {
+                "passo": 9,
+                "descricao": "Leve ao forno pré-aquecido para derreter a mussarela."
+            },
+            {
+                "passo": 10,
+                "descricao": "Sirva com arroz ou purê e uma salada."
+            }
+        ]
+    }
+]

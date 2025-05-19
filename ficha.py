@@ -1,21 +1,26 @@
 import json
 import os
 
-ARQUIVO_FICHAS = "ficha.json"
+ARQUIVO_FICHAS = os.path.join(os.path.dirname(__file__), 'ficha.json')
 
-# Funções de persistência:
 def carregar_fichas():
     if not os.path.exists(ARQUIVO_FICHAS):
-        return []
+        with open(ARQUIVO_FICHAS, 'w', encoding='utf-8') as f:
+            json.dump([], f, indent=4)
     
-    with open(ARQUIVO_FICHAS, 'r', encoding='utf-8') as arquivo:
-        return json.load(arquivo)
+    try:
+        with open(ARQUIVO_FICHAS, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except json.JSONDecodeError:
+        print("Arquivo de fichas está vazio ou corrompido. Criando novo...")
+        with open(ARQUIVO_FICHAS, 'w', encoding='utf-8') as f:
+            json.dump([], f, indent=4)
+        return []
 
 def salvar_fichas(fichas):
-    with open(ARQUIVO_FICHAS, 'w', encoding='utf-8') as arquivo:
-        json.dump(fichas, arquivo, indent=4, ensure_ascii=False)
+    with open(ARQUIVO_FICHAS, 'w', encoding='utf-8') as f:
+        json.dump(fichas, f, indent=4, ensure_ascii=False)
 
-# Operações CRUD:
 def adicionar_ficha(fichas):
     while True:
         print("\n" + "=" * 40)
@@ -29,106 +34,99 @@ def adicionar_ficha(fichas):
             'preparo': []
         }
 
-        categoria = input("Categoria: ")
+        categoria = input("Categoria: ").upper()
         nova_ficha['categoria'] = categoria
 
-        nome = input("Nome: ")
+        nome = input("Nome: ").capitalize()
         nova_ficha['nome'] = nome
 
         print("\nINGREDIENTES: ")
         while True:
-            ingred = input("Ingrediente: ")
+            ingred = input("Ingrediente (deixe em branco para parar): ").capitalize()
+            if not ingred:
+                break
             quant = input("Quantidade: ")
-
+            
             nova_ficha['ingredientes'].append({
                 'ingrediente': ingred, 
                 'quantidade': quant
             })
 
-            op = input("deseja adiconar  outro ingrediente? (s/n)").lower()
-            if op != 's':
-                break
-
         print("\nMODO DE PREPARO:")
         passo_num = 1
         while True:
-            descricao = input(f"digite o passo {passo_num}: ")
-
+            descricao = input(f"Passo {passo_num} (deixe em branco para parar): ").capitalize()
+            if not descricao:
+                break
+            
             nova_ficha['preparo'].append({
                 'passo': passo_num,
                 'descricao': descricao
             })
-
-            op = input("deseja adiconar  outro passo? (s/n)").lower()
-            if op != 's':
-                break
-
-            passo_num+=1
+            passo_num += 1
             
         fichas.append(nova_ficha)
         salvar_fichas(fichas)
-        print("Ficha adicionada com sucesso!")
+        print("\nFicha adicionada com sucesso!")
 
-        op = input("Deseja adicionar outra ficha? (s/n)").lower()
-        if op != 's':
+        if input("\nAdicionar outra ficha? (s/n): ").lower() != 's':
             break
 
+    return fichas
+
 def visualizar_fichas(fichas):
-    fichas = carregar_fichas()
     if not fichas:
         print("\nNenhuma ficha cadastrada ainda!")
         return
     
-    fichas_por_categoria = {}
-
+    categorias = {}
     for ficha in fichas:
-        categoria = ficha['categoria']
-        if categoria not in fichas_por_categoria:
-            fichas_por_categoria[categoria] = []
-            fichas_por_categoria[categoria].append(ficha)
+        if ficha['categoria'] not in categorias:
+            categorias[ficha['categoria']] = []
+        categorias[ficha['categoria']].append(ficha)
     
-    for categoria, fichas_por_categoria in fichas_por_categoria.items():
-        print(f"\n=== CATEGORIA: {categoria.upper()} ===")
-        print("-" * (15 + len(categoria)))
-
-    for ficha in fichas_por_categoria:
-        print("\n--- FICHA TÉCNICA ---")
-        print(f"Nome: {ficha['nome']}")
+    for categoria, fichas_cat in categorias.items():
+        print("=" * 90)
+        print(f"\n{categoria.upper():^90}")
+        print("=" * 90)
         
-        print(f"\nIngredientes: ")
-        for ingred in ficha['ingredientes']:
-            print(f"- {ingred['quantidade']} {ingred['ingrediente']}")
-                  
-        print("\nModo de Preparo: ")
-        for passo in ficha['preparo']:
-            print(f"{passo['passo']}. {passo['descricao']}")
-            print("-" * 40)
+        for ficha in fichas_cat:
+            print(f"\nNome: {ficha['nome']}")
+            
+            print("\nIngredientes:")
+            for ingred in ficha['ingredientes']:
+                print(f"- {ingred['quantidade']} de {ingred['ingrediente']}")
+            
+            print("\nModo de Preparo:")
+            for passo in ficha['preparo']:
+                print(f"{passo['passo']}. {passo['descricao']}")
+                print("-" * 90)
 
-# Menu específico (importado peolo main.py)
-def menu_fichas(voltar_callback=None):
-    fichas = carregar_fichas()
+def menu_fichas():
     while True:
-        print("\n--- FICHA TÉCNICA ---")
-        print("1 - Adicionar Ficha")
-        print("2 - Visualizar Fichas")
-        print("3 - Editar Ficha")
-        print("4 - Excluir Ficha")
-        print("0- Voltar")
-        op = int(input("Escolha uma opção: "))
-
-        if op == 1:
+        fichas = carregar_fichas()
+        
+        print("\n--- MENU FICHAS ---")
+        print("1. Adicionar Ficha")
+        print("2. Visualizar Fichas")
+        print("3. Editar Ficha")
+        print("4. Excluir Ficha")
+        print("0. Voltar")
+        
+        opcao = input("Escolha uma opção: ")
+        
+        if opcao == "1":
             fichas = adicionar_ficha(fichas)
-        elif op == 2:
-           visualizar_fichas(fichas)
-        # elif op == 3:
-        #    editar_ficha()
-        # elif op ==4:
-        #     excluir_ficha()
-        elif op == 0:
-            if voltar_callback:
-                voltar_callback()
+        elif opcao == "2":
+            visualizar_fichas(fichas)
+        elif opcao == "3":
+            print("\nEditar ficha (em desenvolvimento)")
+        elif opcao == "4":
+            print("\nExcluir ficha (em desenvolvimento)")
+        elif opcao == "0":
+            return
         else:
-            print("opcão invalida.")
+            print("\nOpção inválida!")
 
 if __name__ == "__main__":
     menu_fichas()
