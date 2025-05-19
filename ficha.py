@@ -12,18 +12,18 @@ def menu_fichas():
         print("2 - Visualizar Fichas")
         print("3 - Editar Ficha")
         print("4 - Excluir Ficha")
-        print("5- Voltar")
+        print("0- Voltar")
         op = int(input("Escolha uma opção: "))
 
         if op == 1:
             adicionar_ficha()
-        # elif op == 2:
-           # visualizar_fichas()
+        elif op == 2:
+           visualizar_fichas()
         # elif op == 3:
         #    editar_ficha()
         # elif op ==4:
         #     excluir_ficha()
-        # elif op == 5:
+        # elif op == 0:
         #     main()
         else:
             print("opcão invalida.")
@@ -84,6 +84,38 @@ def adicionar_ficha():
         op = input("Deseja adicionar outra ficha? (s/n)").lower()
         if op != 's':
             break
+
+def visualizar_fichas():
+    if not fichas:
+        print("\nNenhuma ficha cadastrada ainda!")
+        return
+    
+    fichas_por_categoria = {}
+
+    for ficha in fichas:
+        categoria = ficha['categoria']
+        if categoria not in fichas_por_categoria:
+            fichas_por_categoria[categoria] = []
+            fichas_por_categoria[categoria].append(ficha)
+    
+    for categoria, fichas_por_categoria in fichas_por_categoria.items():
+        print(f"\n=== CATEGORIA: {categoria.upper()} ===")
+        print("-" * (15 + len(categoria)))
+
+    for ficha in fichas_por_categoria:
+        print("\n--- FICHA TÉCNICA ---")
+        print(f"Nome: {ficha['nome']}")
+        
+        print(f"\nIngredientes: ")
+        for ingred in ficha['ingredientes']:
+            print(f"- {ingred['quantidade']} {ingred['ingrediente']}")
+                  
+        print("\nModo de Preparo: ")
+        for passo in ficha['preparo']:
+            print(f"{passo['passo']}. {passo['descricao']}")
+            print("-" * 40)
+
+menu_fichas()
 
 # --------------------------------------------------------------------
 # def carregar_ficha():
