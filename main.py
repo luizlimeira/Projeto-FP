@@ -27,7 +27,7 @@ def main():
 
         elif opcao == "3":
             menu_fichas()
-
+            
         elif opcao == "0":
             print("Saindo do sistema.")
             break
