@@ -158,5 +158,37 @@
                 "descricao": "Sirva com arroz ou purê e uma salada."
             }
         ]
+    },
+    {
+        "categoria": "COMIDA",
+        "nome": "Exemplo",
+        "ingredientes": [
+            {
+                "ingrediente": "Bananinha",
+                "quantidade": "2"
+            },
+            {
+                "ingrediente": "Bananinha ralada",
+                "quantidade": "5"
+            },
+            {
+                "ingrediente": "Bananinha assada",
+                "quantidade": "1"
+            }
+        ],
+        "preparo": [
+            {
+                "passo": 1,
+                "descricao": "Pegar bananinha"
+            },
+            {
+                "passo": 2,
+                "descricao": "Assar bananinha"
+            },
+            {
+                "passo": 3,
+                "descricao": "Servir bananinha"
+            }
+        ]
     }
 ]
