@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1,
+        "nome": "Filé à Parmegiana (2 Pessoas)",
+        "descricao": "200g de fil� � milanesa envoltos em molho caseiro de tomate fresco e gratinado com queijos mu�arela e parmes�o. Servido com espaguete no pr�prio molho ou com arroz branco e batatas fritas.",
+        "ingredientes": "Ovo, Gl�ten, Leite",
+        "preco": 60.0,
+        "categoria": "prato principal"
+    },
+    {
+        "id": 2,
+        "nome": "Peixe Crocante (3 pessoas)",
+        "descricao": "Fil� de peixe empanado ao coco levemente adocicado e farinha de p�es frescos, crocante por fora e macio por dentro. Acompanha arroz de castanha e maionese de batata com picles de pepino.",
+        "ingredientes": "Ovo, Gl�ten, Peixe, Lactose, Leite, Castanhas.",
+        "preco": 70.0,
+        "categoria": "prato principal"
+    },
+    {
+        "id": 3,
+        "nome": "Carne de Sol do Maranh�o (3 pessoas)",
+        "descricao": "450g de carne de sol de fil� mignon. Acompanha bai�o de dois, farofa de ovos, banana � milanesa, cebola roxa refogada, pur� de macaxeira gratinado com queijo coalho e vinagrete.",
+        "ingredientes": "Ovo, Gl�ten, Lactose, Leite.",
+        "preco": 89.9,
+        "categoria": "prato principal"
+    },
+    {
+        "id": 4,
+        "nome": "Fil� com Fritas",
+        "descricao": "300g de Cubos de fil�, refogado com cebola roxa e molho barbecue. Acompanha batata frita.",
+        "ingredientes": "Carne Bovina, Gl�ten, Batata, Molho.",
+        "preco": 45.0,
+        "categoria": "entrada"
+    },
+    {
+        "id": 5,
+        "nome": "Caldinho de Feij�o",
+        "descricao": "Caldo de feij�o preto refogado com azeite e pimente de cheiro, com ovo de codorna, azeitona, charque e torresmo.",
+        "ingredientes": "feij�o, Ovo, Carne bovina, Gordura de Porco.",
+        "preco": 15.0,
+        "categoria": "entrada"
+    },
+    {
+        "id": 6,
+        "nome": "Pastel de Queijo",
+        "descricao": "Massa fresca recheada com queijo coalho e mu�arela.",
+        "ingredientes": "Massa, Queijo.",
+        "preco": 20.0,
+        "categoria": "entrada"
+    },
+    {
+        "id": 7,
+        "nome": "Pudim de Leite",
+        "descricao": "Doce caseiro com ameixas pretas em calda.",
+        "ingredientes": "Ovo, Leite.",
+        "preco": 25.0,
+        "categoria": "sobremesa"
+    },
+    {
+        "id": 8,
+        "nome": "Torta Pav� de Chocolate",
+        "descricao": "Fatia de torta com deliciosas camadas de p�o de l� de chocolate trufado e creme de chcocolate. Coberta com trufa cremosa e bolinhas de chocolate crocante.",
+        "ingredientes": "Ovo, Chocolate, Leite.",
+        "preco": 17.0,
+        "categoria": "sobremesa"
+    },
+    {
+        "id": 9,
+        "nome": "�gua Mineral",
+        "descricao": "�gua para beber",
+        "ingredientes": "�gua",
+        "preco": 7.5,
+        "categoria": "bebida"
+    },
+    {
+        "id": 10,
+        "nome": "Refrigerante (coca-cola, fanta, guaran�)",
+        "descricao": "bebida gaseificada",
+        "ingredientes": "�gua, g�s, corante.",
+        "preco": 9.5,
+        "categoria": "bebida"
+    },
+    {
+        "id": 11,
+        "nome": "Caf� Expresso",
+        "descricao": "Delicioso caf� feito com torra nobre.",
+        "ingredientes": "caf�",
+        "preco": 7.9,
+        "categoria": "bebida"
+    }
+]
