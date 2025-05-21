@@ -93,12 +93,3 @@ def remover_item():
             salvar_cardapio(cardapio)
             print("Item removido com sucesso!")
             return
-    print("Item não encontrado.")
-
-
-
-
-
-
-    
-            
