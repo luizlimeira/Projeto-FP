@@ -128,8 +128,6 @@ def menu_fichas():
         else:
             print("\nOpção inválida!")
 
-        #testeeeeee
-        #testeeeeeee2
 
 if __name__ == "__main__":
     menu_fichas()
